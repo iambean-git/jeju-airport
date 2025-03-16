@@ -1,4 +1,5 @@
 import  fetchTaxi  from "../../lib/data";
+import { FaTaxi } from "react-icons/fa";
 
 export default async function Taxi() {
     const { witTaxiCT, witPaxCT, xptBdgMi } = await fetchTaxi();
