@@ -28,3 +28,8 @@ body {
 button:hover{
   cursor: pointer;
 }
+
+.container{
+  background-color: #ffffff;
+  border-radius: var(--radius-lg) /* 0.5rem = 8px */;
+}

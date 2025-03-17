@@ -1,5 +1,5 @@
 'use client'
-import fetchTaxi from "../../lib/data";
+import { fetchTaxi } from "../../lib/data";
 import { FaTaxi } from "react-icons/fa";
 import { useEffect, useState } from 'react';
 

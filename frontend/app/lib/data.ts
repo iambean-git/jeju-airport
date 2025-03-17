@@ -1,6 +1,6 @@
 import { parseStringPromise } from "xml2js";
 
-export default async function fetchTaxi() {
+export async function fetchTaxi() {
     try {
         const url = `${process.env.DATA_TAXI_URL}?serviceKey=${process.env.DATA_KEY}&pageNo=1&numOfRows=10`;
         // console.log("serviceKey : " + process.env.DATA_KEY);
@@ -24,6 +24,17 @@ export default async function fetchTaxi() {
         console.log("💡 예상 탑승 대기 시간 : " + xptBdgMi);
         
         return { witTaxiCT, witPaxCT, xptBdgMi };
+
+    } catch (error) {
+        console.error("fetchTaxi Error : ", error);
+        throw new Error('Failed to fetch the Taxi data.');
+    }
+}
+
+
+export async function fetchCongestion() {
+    try {
+        const url = `${process.env.DATA_TAXI_URL}?serviceKey=${process.env.DATA_KEY}&pageNo=1&numOfRows=10`;
 
     } catch (error) {
         console.error("fetchTaxi Error : ", error);
