@@ -70,7 +70,7 @@ export default function Congestion() {
                             {/* 타이틀 */}
                             <div className='absolute -top-3.5 left-6 md:top-10 md:left-0 flex items-center md:flex-col md:transform md:-translate-x-1/2'>
                                 <span className="text-xl mr-2 md:mr-0 md:mb-1">{s.icon}</span>
-                                <span>{s.title}</span>
+                                <span className='md:text-sm'>{s.title}</span>
                             </div>
                         </div>
                     ))}
@@ -81,7 +81,7 @@ export default function Congestion() {
 
 
             {/* 혼잡도 범례 */}
-            <div className="-mt-10 mb-10 flex items-center md:mt-16 space-x-4 justify-center z-10 ">
+            <div className="-mt-10 mb-5 flex items-center md:mt-16 space-x-4 justify-center z-10 ">
                 <div className="flex items-center">
                     <div className="h-3 w-3 rounded-full bg-red-500 mr-1"></div>
                     <span className="text-xs">혼잡</span>
@@ -95,6 +95,8 @@ export default function Congestion() {
                     <span className="text-xs">여유</span>
                 </div>
             </div>
+
+            
         </div >
 
     )
