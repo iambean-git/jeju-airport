@@ -2,12 +2,13 @@
 import { useState } from "react";
 import clsx from "clsx";
 import Taxi from "./ui/home/taxi";
+import Parking from "./ui/home/parking";
 import BoardingTime from "./ui/home/boardingtime";
 import BoardingTimeDetail from "./ui/home/boardingtimeDetail";
 export default function Home() {
   const menuBtns = [
     { id: "taxi", label: "택시 정보" },
-    { id: "menu1", label: "메뉴 1" },
+    { id: "parking", label: "주차 정보" },
     { id: "menu2", label: "메뉴 2" },
   ];
   const [selected, setSelected] = useState("taxi");
@@ -65,7 +66,11 @@ export default function Home() {
           ))}
         </div>
         <div className="bg-white mt-5 min-h-80" >
-          <Taxi />
+          { selected == "taxi" ? <Taxi /> :
+            selected == "parking" ? <Parking /> :
+            <span>메뉴2</span>
+          }
+          
         </div>
 
       </main>
