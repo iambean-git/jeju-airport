@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const url = `${process.env.DATA_TAXI_URL}?serviceKey=${process.env.DATA_KEY}&pageNo=1&numOfRows=10`;
-    console.log("Fetching from:", url);
+    // console.log("Fetching from:", url);
 
     const resp = await fetch(url);
     const textData = await resp.text(); // XML 데이터를 텍스트로 가져오기

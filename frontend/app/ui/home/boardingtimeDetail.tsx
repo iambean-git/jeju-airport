@@ -28,7 +28,7 @@ const congestColor = {
     "보통": "bg-green-500",
 }
 
-export default function Congestion() {
+export default function BoardingTimeDetail() {
     const nodeStyle = clsx(
         'h-20 w-[160px] md:w-1/6 relative border-l-4 md:border-t-4 md:border-l-0'
         // 'h-20 w-2/3 relative border-l-4 border-gray-300'

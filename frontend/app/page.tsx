@@ -2,11 +2,8 @@
 import { useState } from "react";
 import clsx from "clsx";
 import Taxi from "./ui/home/taxi";
-import Timeinfo from "./ui/home/timeinfo";
-import Congestion from "./ui/home/congestion";
-import { Suspense } from 'react';
-import { TaxiSkeleton } from "./ui/skeletons";
-import TestCongestion from "./ui/home/test";
+import BoardingTime from "./ui/home/boardingtime";
+import BoardingTimeDetail from "./ui/home/boardingtimeDetail";
 export default function Home() {
   const menuBtns = [
     { id: "taxi", label: "택시 정보" },
@@ -25,10 +22,10 @@ export default function Home() {
       <main className="flex w-full flex-col min-h-screen max-w-[1536px] mx-auto 2xl px-5">
         <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
           <section className="container h-auto md:h-72 font-b bg-white md:col-span-1">
-            <Timeinfo />
+            <BoardingTime />
           </section>
           <section className="container h-auto md:h-72 md:col-span-2">
-            <Congestion />
+            <BoardingTimeDetail />
           </section>
         </div>
         {/* 안내 멘트 */}
@@ -68,10 +65,7 @@ export default function Home() {
           ))}
         </div>
         <div className="bg-white mt-5 min-h-80" >
-
-          <Suspense fallback={<TaxiSkeleton />}>
-            <Taxi />
-          </Suspense>
+          <Taxi />
         </div>
 
       </main>
