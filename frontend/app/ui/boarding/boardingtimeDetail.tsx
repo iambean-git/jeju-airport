@@ -1,5 +1,5 @@
-import React from 'react'
 import clsx from 'clsx';
+import { BoardingTime, BoardingCongestion } from '@/app/lib/definition';
 const steps = [
     { id: 1, title: '공항도착(주차)', icon: '🧳' },
     { id: 2, title: '셀프 체크인', icon: '🧾' },
@@ -28,11 +28,16 @@ const congestColor = {
     "보통": "bg-green-500",
 }
 
-export default function BoardingTimeDetail() {
+export default function BoardingTimeDetail(
+    {time, congestion} : {
+        time : BoardingTime,
+        congestion : BoardingCongestion
+    }) {
     const nodeStyle = clsx(
         'h-20 w-[160px] md:w-1/6 relative border-l-4 md:border-t-4 md:border-l-0'
         // 'h-20 w-2/3 relative border-l-4 border-gray-300'
     )
+    
     return (
         <div className='flex flex-col'>
             <div className='w-full flex justify-center items-center h-full flex-row md:flex-col'>
@@ -40,13 +45,13 @@ export default function BoardingTimeDetail() {
                 <div className='flex flex-col mr-5 md:mr-0 md:flex-row md:w-full mt-12 md:mt-8'>
                     <div className='h-20 md:h-5 md:w-1/6'></div>
                     <div className='md:h-5 md:w-1/6'></div>
-                    {sectionTime.map((time, idx) => (
+                    {time.map((time, idx) => (
                         <div key={`time${idx}`}
                             className='h-20  md:h-fit md:w-1/6 flex items-center justify-center translate-y-4.5'>
                             <span className={clsx('bg-gray-200 px-3 py-1 rounded-xl text-gray-700 text-xs', {
-                                "text-red-600 bg-red-100": idx < 3 && sectionCongestion[idx].status == "혼잡",
-                                "text-yellow-600 bg-yellow-100": idx < 3 && sectionCongestion[idx].status == "여유",
-                                "text-green-600 bg-green-100": idx < 3 && sectionCongestion[idx].status == "보통",
+                                "text-red-600 bg-red-100": idx < 3 && congestion[idx].status == "혼잡",
+                                "text-green-600 bg-green-100": idx < 3 && congestion[idx].status == "여유",
+                                "text-yellow-600 bg-yellow-100": idx < 3 && congestion[idx].status == "보통",
                             })}> {time.time}분 </span>
                         </div>
                     ))}
@@ -57,9 +62,9 @@ export default function BoardingTimeDetail() {
                     <div className='h-20 md:w-1/6 '></div>
                     {steps.map((s) => (
                         <div className={clsx(nodeStyle, {
-                            "border-red-500": sectionCongestion[s.id - 2]?.status == "혼잡",
-                            "border-yellow-500": sectionCongestion[s.id - 2]?.status == "여유",
-                            "border-green-500": sectionCongestion[s.id - 2]?.status == "보통",
+                            "border-red-500": congestion[s.id - 2]?.status == "혼잡",
+                            "border-green-500": congestion[s.id - 2]?.status == "여유",
+                            "border-yellow-500": congestion[s.id - 2]?.status == "보통",
                             "border-gray-300": s.id == 5 || s.id == 1,
                             "border-white": s.id == 6
                         })} key={s.id}>
@@ -96,7 +101,7 @@ export default function BoardingTimeDetail() {
                 </div>
             </div>
 
-            
+
         </div >
 
     )

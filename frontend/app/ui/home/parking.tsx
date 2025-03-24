@@ -25,6 +25,7 @@ export default function Parking() {
             dedupingInterval: 1000 * 60 ,
         });
     // console.log("✅Parking data", data);
+    
     if (error) {
         return <div className="h-full">주차차 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
     }

@@ -3,8 +3,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import Taxi from "./ui/home/taxi";
 import Parking from "./ui/home/parking";
-import BoardingTime from "./ui/home/boardingtime";
-import BoardingTimeDetail from "./ui/home/boardingtimeDetail";
+import Boarding from "./ui/home/boarding";
 export default function Home() {
   const menuBtns = [
     { id: "taxi", label: "택시 정보" },
@@ -21,14 +20,8 @@ export default function Home() {
         </div>
       </header>
       <main className="flex w-full flex-col min-h-screen max-w-[1536px] mx-auto 2xl px-5">
-        <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
-          <section className="container h-auto md:h-72 font-b bg-white md:col-span-1">
-            <BoardingTime />
-          </section>
-          <section className="container h-auto md:h-72 md:col-span-2">
-            <BoardingTimeDetail />
-          </section>
-        </div>
+        <Boarding />
+        
         {/* 안내 멘트 */}
         <div className='text-xs text-start pl-5 mt-5 md:mt-2'>
           <ul className='list-disc '>
