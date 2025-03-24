@@ -20,9 +20,7 @@ export default function BoardingTime({ info, mutate }: { info: BoardingTimeTotal
 
     return (
         <div className='p-5 w-full h-full flex flex-col justify-center items-center'>
-            <div>
 
-            </div>
             <h1 className='text-2xl font-bold' >
                 국내선 탑승시간
             </h1>

@@ -1,12 +1,12 @@
 import BoardingTime from "../boarding/boardingtime";
 import BoardingTimeDetail from "../boarding/boardingtimeDetail";
-import { ParkingSkeleton } from '../skeletons';
+import { BoardingSkeleton } from '../skeletons';
 
 import useSWR from 'swr';
 
 export default function Boarding() {
-
     const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
     const { data, mutate, error } = useSWR("/api/boarding",
         fetcher,
         {
@@ -19,7 +19,7 @@ export default function Boarding() {
     if (error) {
         return <div className="h-full">탑승 소요시간간 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
     }
-    if (!data) return <ParkingSkeleton />;
+    if (!data) return <BoardingSkeleton />;
 
     return (
         <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
