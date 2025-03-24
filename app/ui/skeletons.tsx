@@ -18,7 +18,7 @@ export function BoardingSkeleton() {
           <h1 className='text-2xl font-bold'>
             예상 소요시간 안내
           </h1>
-          <h2 className='mt-2 text-sm text-gray-500 mb-5 bg-gray-100 animate-pulse w-4/5 h-3'></h2>
+          <h2 className='mt-2 text-sm text-gray-500 mb-3 md:mb-5 bg-gray-100 animate-pulse w-4/5 h-3'></h2>
           <div className='bg-gray-200 animate-pulse w-1/2 h-9 rounded'></div>
           <div className='mt-5 bg-gray-100 animate-pulse w-1/2 h-3 rounded'>
           </div>

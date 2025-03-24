@@ -23,7 +23,7 @@ export default function BoardingTimeDetail(
             <div className='w-full flex justify-center items-center h-full flex-row md:flex-col'>
                 {/* 구간별 시간 */}
                 <div className='flex flex-col mr-5 md:mr-0 md:flex-row md:w-full mt-12 md:mt-8'>
-                    <div className='h-20 md:h-5 md:w-1/6'></div>
+                    <div className='h-12 md:h-5 md:w-1/6'></div>
                     <div className='md:h-5 md:w-1/6'></div>
                     {time.map((time, idx) => (
                         <div key={`time${idx}`}
@@ -40,7 +40,7 @@ export default function BoardingTimeDetail(
                 </div>
                 {/* 구간 그림 */}
                 <div className='flex md:w-full flex-col md:flex-row items-center md:mt-10 ' >
-                    <div className='h-20 md:w-1/6 '></div>
+                    <div className='h-12 md:w-1/6 '></div>
                     {steps.map((s) => (
                         <div className={clsx(nodeStyle, {
                             "border-red-500": congestion[s.id - 2]?.status == "매우혼잡",
