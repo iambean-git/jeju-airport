@@ -13,15 +13,15 @@ export default function Home() {
   const [selected, setSelected] = useState("taxi");
 
   return (
-    <div className="bg-[#f3f4f6]">
+    <div className="bg-[#f3f4f6] min-h-screen">
       <header className="h-20 p-5 max-w-[1536px] mx-auto flex items-center justify-center">
         <div className="w-full text-2xl font-bold">
           About JEJU Airport
         </div>
       </header>
-      <main className="flex w-full flex-col min-h-screen max-w-[1536px] mx-auto 2xl px-5">
+      <main className="flex w-full flex-col max-w-[1536px] mx-auto 2xl px-5">
         <Boarding />
-        
+
         {/* 안내 멘트 */}
         <div className='text-xs text-start pl-5 mt-5 md:mt-2'>
           <ul className='list-disc '>
@@ -58,7 +58,7 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div className="bg-white mt-5 min-h-80" >
+        <div className="bg-white my-5 flex justify-center" >
           { selected == "taxi" ? <Taxi /> :
             selected == "parking" ? <Parking /> :
             <span>메뉴2</span>
