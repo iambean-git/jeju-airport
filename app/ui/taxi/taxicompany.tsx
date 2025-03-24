@@ -33,16 +33,22 @@ export default function Taxicompany() {
         }
     }, []);
 
-    const handleCopy = (phoneNumber: string) => {
-        navigator.clipboard.writeText(phoneNumber)
-            .then(() => {
-                setCopiedNumber(phoneNumber);
-                // 2초후 리셋
-                setTimeout(() => setCopiedNumber(null), 2000);
-            })
-            .catch(err => {
-                console.error('Failed to copy: ', err);
-            });
+    const handleClick = (phoneNumber: string) => {
+        if (isMobile) {
+            // 모바일에서 전화 걸기
+            window.location.href = `tel:${phoneNumber}`;
+        } else {
+            navigator.clipboard.writeText(phoneNumber)
+                .then(() => {
+                    setCopiedNumber(phoneNumber);
+                    // 2초후 리셋
+                    setTimeout(() => setCopiedNumber(null), 2000);
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+
     };
 
     return (
@@ -107,7 +113,7 @@ export default function Taxicompany() {
                     <tbody>
                         {filteredData.map((taxi, idx) => (
                             <tr className="bg-white border-b border-gray-200 h-14"
-                            key={"tr"+taxi.호출명}>
+                                key={"tr" + taxi.호출명}>
                                 <td scope="row" className="px-10 whitespace-nowrap">
                                     {taxi.지역별}
                                 </td>
@@ -119,22 +125,26 @@ export default function Taxicompany() {
                                 </td>
                                 <td className="h-14 flex justify-center items-center p-2" >
                                     <button
-                                        onClick={() => handleCopy(taxi.전화번호)}
+                                        onClick={() => handleClick(taxi.전화번호)}
                                         className="w-12 sm:w-16 h-full flex justify-center items-center rounded-lg hover:bg-gray-100"
                                         aria-label="Copy phone number"
                                     >
-                                        <div className="relative w-full h-full flex justify-center items-center">
-                                            <GoCopy
-                                                className={`text-center mt-0.5 absolute transition-all duration-300 ease-in-out ${copiedNumber === taxi.전화번호 ? 'opacity-0' : 'opacity-100'
-                                                    }`}
-                                            />
-                                            <span
-                                                className={`text-blue-600 absolute transition-all duration-300 ease-in-out ${copiedNumber === taxi.전화번호 ? 'opacity-100' : 'opacity-0'
-                                                    }`}
-                                            >
-                                                Copied!
-                                            </span>
-                                        </div>
+                                        {isMobile ?
+                                            <IoCallOutline /> :
+                                            <div className="relative w-full h-full flex justify-center items-center">
+                                                <GoCopy
+                                                    className={`text-center mt-0.5 absolute transition-all duration-300 ease-in-out ${copiedNumber === taxi.전화번호 ? 'opacity-0' : 'opacity-100'
+                                                        }`}
+                                                />
+                                                <span
+                                                    className={`text-blue-600 absolute transition-all duration-300 ease-in-out ${copiedNumber === taxi.전화번호 ? 'opacity-100' : 'opacity-0'
+                                                        }`}
+                                                >
+                                                    Copied!
+                                                </span>
+                                            </div>
+                                        }
+
                                     </button>
                                 </td>
 
