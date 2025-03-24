@@ -84,7 +84,9 @@ export default function Taxicompany() {
                 {/* ============== onClick 추가하기  ==================*/}
                 <div className="grid grid-cols-2 sm:hidden w-full flex-col gap-3">
                     {filteredData.map((taxi, idx) => (
-                        <button className=" border border-gray-300 rounded-lg p-3"
+                        <button
+                            className=" border border-gray-300 rounded-lg p-3"
+                            onClick={() => handleClick(taxi.전화번호)}
                             key={"btn" + taxi.호출명}>
                             <div className="text-gray-500 text-sm">{taxi.지역별}</div>
                             <div className="text-sm text-blue-600">{taxi.호출명}</div>
