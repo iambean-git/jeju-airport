@@ -12,7 +12,7 @@ export default function Taxi() {
       refreshInterval: 30000,   // 30,000ms = 30초
       dedupingInterval: 60000,
     });
-  console.log("✅Taxi data", data);
+  // console.log("✅Taxi data", data);
   if (error) {
     return <div className="h-full">택시 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
   }

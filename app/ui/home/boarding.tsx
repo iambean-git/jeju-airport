@@ -14,7 +14,7 @@ export default function Boarding() {
             dedupingInterval: 1000 * 60 * 5,
         });
 
-    console.log("✅🛫Boarding Time data", data);
+    // console.log("✅🛫Boarding Time data", data);
 
     if (error) {
         return <div className="h-full">탑승 소요시간간 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력

@@ -1,4 +1,5 @@
-import Parkingcongestion from '../parking/parkingcongestion'
+import Parkingcongestion from '../parking/parkingcongestion';
+import Parkingfare from '../parking/parkingfare';
 import { ParkingSkeleton } from '../skeletons';
 import useSWR from 'swr';
 
@@ -24,10 +25,10 @@ export default function Parking() {
             refreshInterval: 1000 * 60 ,   //1분
             dedupingInterval: 1000 * 60 ,
         });
-    // console.log("✅Parking data", data);
+    console.log("✅Parking data", data);
     
     if (error) {
-        return <div className="h-full">주차차 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
+        return <div className="h-full">주차 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
     }
     if (!data) return <ParkingSkeleton />;
 
@@ -35,11 +36,12 @@ export default function Parking() {
         <div className='w-full flex flex-col md:flex-row p-5 gap-5'>
             <div className='w-full md:w-1/2 border rounded-lg border-gray-300 p-5 md:p-10 flex flex-col'>
                 <h1 className='w-full text-2xl font-bold '>주차 현황</h1>
-                {data.map((i:parkinginfo)=><Parkingcongestion key={i.name} title={i.name} available={i.available} congestion={i.congestion} />)}
+                { data && data.map((i:parkinginfo)=><Parkingcongestion key={i.name} title={i.name} available={i.available} congestion={i.congestion} />)}
 
             </div>
             <div className='w-full md:w-1/2 border rounded-lg border-gray-300 p-5 md:p-10 flex flex-col'>
                 <h1 className='w-full text-2xl font-bold '>예상 주차요금 조회</h1>
+                <Parkingfare />
             </div>
         </div>
     )

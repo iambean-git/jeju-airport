@@ -13,13 +13,13 @@ export default function Home() {
   const [selected, setSelected] = useState("taxi");
 
   return (
-    <div className="bg-[#f3f4f6] min-h-screen">
+    <div className="bg-[#f3f4f6] min-h-screen flex flex-col">
       <header className="h-20 p-5 max-w-[1536px] mx-auto flex items-center justify-center">
         <div className="w-full text-2xl font-bold">
           About JEJU Airport
         </div>
       </header>
-      <main className="flex w-full flex-col max-w-[1536px] mx-auto 2xl px-5">
+      <main className="flex w-full flex-col max-w-[1536px] mx-auto 2xl px-5 grow">
         <Boarding />
 
         {/* 안내 멘트 */}
@@ -42,7 +42,7 @@ export default function Home() {
         </div>
 
         {/* 메뉴 버튼 */}
-        <div className="bg-slate-300 mt-5 rounded-lg grid grid-cols-3 px-1.5 gap-2">
+        <div className="bg-slate-300 mt-5 rounded-lg grid grid-cols-3 px-1.5 gap-2 ">
           {menuBtns.map(({ id, label }) => (
             <button
               key={id}
@@ -58,7 +58,7 @@ export default function Home() {
             </button>
           ))}
         </div>
-        <div className="bg-white my-5 flex justify-center" >
+        <div className="bg-white my-5 flex justify-center h-full" >
           { selected == "taxi" ? <Taxi /> :
             selected == "parking" ? <Parking /> :
             <span>메뉴2</span>
