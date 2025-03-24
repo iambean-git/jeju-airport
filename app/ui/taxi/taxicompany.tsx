@@ -28,7 +28,6 @@ export default function Taxicompany() {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const userAgent = navigator.userAgent.toLowerCase();
-            console.log("✅✅✅✅ userAgent : ", userAgent);
             setIsMobile(/iphone|ipod|ipad|android/.test(userAgent));
         }
     }, []);
@@ -48,14 +47,13 @@ export default function Taxicompany() {
                     console.error('Failed to copy: ', err);
                 });
         }
-
     };
 
     return (
         <div className="w-full">
             <div className="text-xs px-2 py-5 rounded-lg bg-blue-50 mb-5">
 
-                <ul className="list-inside list-disc pl-2 space-y-1 text-gray-800 font-light">
+                <ul className="list-disc pl-6 space-y-1 text-gray-800 font-light">
                     <li>대기 시간이 길다면, 내가 가는 지역의 콜택시를 이용해보세요!</li>
                     <li>공항 근처에서 해당 지역으로 돌아가는 택시를 이용하면 미터요금보다 더 저럼하게 이용할 수 있어요</li>
                     <li>콜 택시에 전화해 목적지를 설명하고 예상 요금을 미리 확인하세요</li>
@@ -81,7 +79,6 @@ export default function Taxicompany() {
 
             <div className="relative overflow-x-auto">
                 {/* 모바일 버전 */}
-                {/* ============== onClick 추가하기  ==================*/}
                 <div className="grid grid-cols-2 sm:hidden w-full flex-col gap-3">
                     {filteredData.map((taxi, idx) => (
                         <button

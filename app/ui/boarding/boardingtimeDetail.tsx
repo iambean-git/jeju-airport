@@ -15,7 +15,7 @@ export default function BoardingTimeDetail(
         congestion : BoardingCongestion
     }) {
     const nodeStyle = clsx(
-        'h-20 w-[160px] md:w-1/6 relative border-l-4 md:border-t-4 md:border-l-0'
+        'h-20 w-[160px] md:w-1/6 relative border-l-4 md:border-t-4 md:border-l-0 border-gray-300'
     )
     
     return (
@@ -33,7 +33,7 @@ export default function BoardingTimeDetail(
                                 "text-orange-600 bg-orange-100": idx < 3 && congestion[idx].status == "혼잡",
                                 "text-green-600 bg-green-100": idx < 3 && congestion[idx].status == "여유",
                                 "text-yellow-600 bg-yellow-100": idx < 3 && congestion[idx].status == "보통",
-                            })}> {time.time}분 </span>
+                            })}> {time.time === 0 ? <span>-</span> : <span>{time.time}분</span>}  </span>
                         </div>
                     ))}
                     <div className='h-20 md:h-5 md:w-1/6'></div>
@@ -47,7 +47,6 @@ export default function BoardingTimeDetail(
                             "border-orange-500": congestion[s.id - 2]?.status == "혼잡",
                             "border-green-500": congestion[s.id - 2]?.status == "여유",
                             "border-yellow-500": congestion[s.id - 2]?.status == "보통",
-                            "border-gray-300": s.id == 5 || s.id == 1,
                             "border-white": s.id == 6
                         })} key={s.id}>
                             {/* 원형 숫자 */}
@@ -68,7 +67,7 @@ export default function BoardingTimeDetail(
 
 
             {/* 혼잡도 범례 */}
-            <div className="-mt-10 mb-5 flex items-center md:mt-16 space-x-4 justify-center z-10 ">
+            <div className="-mt-8 mb-5 flex items-center md:mt-16 space-x-4 justify-center z-10 ">
             <div className="flex items-center">
                     <div className="h-3 w-3 rounded-full bg-red-500 mr-1"></div>
                     <span className="text-xs">매우혼잡</span>

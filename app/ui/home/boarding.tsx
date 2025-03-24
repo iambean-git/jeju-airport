@@ -14,13 +14,19 @@ export default function Boarding() {
             dedupingInterval: 1000 * 60 * 5,
         });
 
-    // console.log("Boarding Time data", data);
+    console.log("✅🛫Boarding Time data", data);
 
     if (error) {
         return <div className="h-full">탑승 소요시간간 데이터를 가져오는 데 실패했습니다. 다시 시도해주세요. {error}</div>;  // 에러 메시지 출력
     }
     if (!data) return <BoardingSkeleton />;
 
+
+    // if(!data.available){
+    //     return(
+    //         <div>이용정보 미제공</div>
+    //     )
+    // }
     return (
         <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
             <section className="container h-auto md:h-72 font-b bg-white md:col-span-1">

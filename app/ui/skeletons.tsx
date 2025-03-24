@@ -12,13 +12,13 @@ export function BoardingSkeleton() {
     <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
       <section className="container h-auto md:h-72 font-b bg-white md:col-span-1">
         <div className='p-5 w-full h-full flex flex-col justify-center items-center'>
-          <h1 className='text-2xl font-bold' >
+          <h1 className='text-xl md:text-2xl font-bold' >
             국내선 탑승시간
           </h1>
-          <h1 className='text-2xl font-bold'>
+          <h1 className='text-xl md:text-2xl font-bold'>
             예상 소요시간 안내
           </h1>
-          <h2 className='mt-2 text-sm text-gray-500 mb-3 md:mb-5 bg-gray-100 animate-pulse w-4/5 h-3'></h2>
+          <h2 className='mt-2 text-sm text-gray-500 mb-5 bg-gray-100 animate-pulse w-4/5 h-3'></h2>
           <div className='bg-gray-200 animate-pulse w-1/2 h-9 rounded'></div>
           <div className='mt-5 bg-gray-100 animate-pulse w-1/2 h-3 rounded'>
           </div>
