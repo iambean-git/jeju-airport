@@ -18,15 +18,15 @@ export function BoardingSkeleton() {
           <h1 className='text-2xl font-bold'>
             예상 소요시간 안내
           </h1>
-          <h2 className='mt-2 text-sm text-gray-500 mb-5 bg-gray-100 animate-pulse w-4/5 h-5'></h2>
-          <div className='bg-gray-200 animate-pulse w-1/2 h-16 rounded'></div>
-          <div className='mt-5 bg-gray-100 animate-pulse w-1/2 h-5 rounded'>
+          <h2 className='mt-2 text-sm text-gray-500 mb-5 bg-gray-100 animate-pulse w-4/5 h-3'></h2>
+          <div className='bg-gray-200 animate-pulse w-1/2 h-9 rounded'></div>
+          <div className='mt-5 bg-gray-100 animate-pulse w-1/2 h-3 rounded'>
           </div>
         </div>
       </section>
       <section className="container h-auto md:h-72 md:col-span-2">
         <div className='flex flex-col justify-center items-center h-full my-10 md:my-5'>
-          {/* 그림 영역역 */}
+          {/* 그림 영역 */}
           <div className='bg-gray-200 animate-pulse w-4/5 h-96 md:h-32 rounded'></div>
           {/* 혼잡도 범례 */}
           <div className="bg-gray-100 animate-pulse w-2/5 h-10 rounded md:mt-5 mt-10 "></div>
