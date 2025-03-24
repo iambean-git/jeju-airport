@@ -20,27 +20,31 @@ export const metadata: Metadata = {
 };
 
 const SUIT = localFont({
-  src : [
-    {
-      path : "./fonts/SUIT-Regular.otf",
-      weight : '400',
-      style : 'normal'
-    },
-    {
-      path : "./fonts/SUIT-Medium.otf",
-      weight : '500',
-      style : 'normal'
-    },
-    {
-      path : "./fonts/SUIT-SemiBold.otf",
-      weight : '600',
-      style : 'normal'
-    },
-    {
-      path : "./fonts/SUIT-Bold.otf",
-      weight : '700',
-      style : 'normal'
-    }
+  src: [{
+    path: "./fonts/SUIT-Light.otf",
+    weight: '300',
+    style: 'normal'
+  },
+  {
+    path: "./fonts/SUIT-Regular.otf",
+    weight: '400',
+    style: 'normal'
+  },
+  {
+    path: "./fonts/SUIT-Medium.otf",
+    weight: '500',
+    style: 'normal'
+  },
+  {
+    path: "./fonts/SUIT-SemiBold.otf",
+    weight: '600',
+    style: 'normal'
+  },
+  {
+    path: "./fonts/SUIT-Bold.otf",
+    weight: '700',
+    style: 'normal'
+  }
   ]
 })
 
