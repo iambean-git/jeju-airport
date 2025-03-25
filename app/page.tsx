@@ -8,7 +8,7 @@ export default function Home() {
   const menuBtns = [
     { id: "taxi", label: "택시 정보" },
     { id: "parking", label: "주차 정보" },
-    { id: "menu2", label: "메뉴 2" },
+    { id: "menu2", label: "운항 정보" },
   ];
   const [selected, setSelected] = useState("taxi");
 

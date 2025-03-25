@@ -12,11 +12,11 @@ interface boardinginfo {
 const congestionLevel = ["", "여유", "보통", "혼잡", "매우혼잡"]; //1:원활 , 2:보통, 3:혼잡, 4:매우혼잡
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const now = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
-  const date = new Date(now);
+  const now = new Date();
+  const nowInKST = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Seoul" }));
 
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+  const hours = nowInKST.getHours();
+  const minutes = nowInKST.getMinutes();
   const currentTime = hours * 100 + minutes; // 시간을 HHMM 형식으로 변환
 
   // 21:30 ~ 06:30 사이인지 확인
@@ -58,11 +58,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       const resp = await fetch(url);
       const data = await resp.json();
-      console.log("✅ BoardingTime data", data);
+      // console.log("✅ BoardingTime data", data);
 
       const resp2 = await fetch(url2);
       const data2 = await resp2.json();
-      console.log("✅ BoardingTime data", data2);
+      // console.log("✅ BoardingTime data", data2);
 
       const boardingData: boardinginfo = {
         total: {
