@@ -2,6 +2,7 @@ import { calculateParkingfare } from '@/app/lib/actions';
 import { useState } from "react";
 import { TIME_OPTIONS, DISCOUNT_TYPES } from '@/app/lib/utils';
 import CalculatedFare from './calculatedfare';
+import { CalculatedFareSkeleton } from '../skeletons';
 // 현재 날짜를 Date 객체로 가져오기
 const getTodayDate = () => {
     const today = new Date();
@@ -19,6 +20,7 @@ const formatDateForInput = (date: Date): string => {
 
 export default function Parkingfare() {
     const [fare, setFare] = useState(0);
+    const [isFareLoading, setIsFareLoading] = useState(false);
     const [carType, setCarType] = useState("소형");                 // 차량 종류
     const [startDateTime, setStartDateTime] = useState<Date>(getTodayDate());  // 입차시간
     const [endDateTime, setEndDateTime] = useState<Date | null>(null);          // 출차시간
@@ -83,6 +85,7 @@ export default function Parkingfare() {
         }
 
         const formData = new FormData(e.currentTarget); // FormData 생성
+        setIsFareLoading(true);
         try {
             const fare = await calculateParkingfare(formData); // 서버 액션 호출 (비동기 처리)
             setFare(fare);
@@ -90,6 +93,7 @@ export default function Parkingfare() {
         } catch (error) {
             console.error("요금 계산 오류:", error);
         }
+        setIsFareLoading(false);
     };
 
 
@@ -197,7 +201,10 @@ export default function Parkingfare() {
                 </div>
             </form>
 
-            {fare === 0 ? <></> : <CalculatedFare fare={fare} />}
+            {
+                isFareLoading ? <CalculatedFareSkeleton /> :
+                    fare === 0 ? <></> : <CalculatedFare fare={fare} />
+            }
 
         </div>
     )

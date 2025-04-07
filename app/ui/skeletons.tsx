@@ -74,3 +74,17 @@ export function ParkingSkeleton() {
     </div>
   );
 }
+
+export function CalculatedFareSkeleton() {
+  return (
+      <div className='h-fit px-5 flex justify-center items-center bg-blue-50/70 flex-col'>
+          <div className="flex flex-wrap justify-center items-baseline border-t w-full text-center pt-10 border-t-gray-300 text-lg">
+              <span className="whitespace-nowrap">예상 주차 요금은</span>
+              <span className="whitespace-nowrap">
+                  &nbsp;<span className="animate-pulse bg-gray-300 rounded-md h-8 w-24 inline-block"></span> 원입니다.
+              </span>
+          </div>
+          <p className='text-sm mb-8 text-gray-400 pt-2 pb-4 animate-pulse'>※ 로딩 중...</p>
+      </div>
+  )
+}
