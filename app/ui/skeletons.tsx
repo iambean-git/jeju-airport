@@ -1,8 +1,63 @@
 
 export function TaxiSkeleton() {
   return (
-    <div>
-      택시 로딩중...
+    <div className="w-full flex flex-col p-5 md:p-10 max-w-[900px] animate-pulse">
+      {/* 택시 대기 현황 헤더 스켈레톤 */}
+      <div className="w-48 h-8 bg-gray-200 rounded mb-5"></div>
+
+      {/* 택시 대기 현황 카드 스켈레톤 */}
+      <div className='w-full grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5'>
+        <div className='bg-gray-100 rounded-md p-3'>
+          <div className='flex flex-col sm:flex-row sm:items-center'>
+            <div className='w-6 h-6 bg-gray-200 rounded mr-1'></div>
+            <div className='w-24 h-4 bg-gray-200 rounded mt-1 sm:mt-0'></div>
+          </div>
+          <div className='w-16 h-7 bg-gray-200 rounded mt-3'></div>
+        </div>
+
+        <div className='bg-gray-100 rounded-md p-3'>
+          <div className='flex flex-col sm:flex-row sm:items-center'>
+            <div className='w-6 h-6 bg-gray-200 rounded mr-1'></div>
+            <div className='w-24 h-4 bg-gray-200 rounded mt-1 sm:mt-0'></div>
+          </div>
+          <div className='w-16 h-7 bg-gray-200 rounded mt-3'></div>
+        </div>
+
+        <div className='bg-gray-100 rounded-md p-3'>
+          <div className='flex flex-col sm:flex-row sm:items-center'>
+            <div className='w-6 h-6 bg-gray-200 rounded mr-1'></div>
+            <div className='w-28 h-4 bg-gray-200 rounded mt-1 sm:mt-0'></div>
+          </div>
+          <div className='w-16 h-7 bg-gray-200 rounded mt-3'></div>
+        </div>
+      </div>
+
+      {/* 콜택시 업체 정보 헤더 스켈레톤 */}
+      <div className="w-48 h-8 bg-gray-200 rounded mt-15 mb-5"></div>
+
+      {/* 정보 박스 스켈레톤 */}
+      <div className="w-full h-28 bg-gray-100 rounded-lg mb-5"></div>
+
+      {/* 테이블 헤더 스켈레톤 */}
+      <div className="hidden sm:flex w-full h-12 bg-gray-100 rounded mb-2"></div>
+
+      {/* 테이블 로우 스켈레톤 - 데스크탑 */}
+      <div className="hidden sm:block">
+        {[...Array(5)].map((_, idx) => (
+          <div key={idx} className="w-full h-14 bg-gray-50 border-b border-gray-100 mb-1"></div>
+        ))}
+      </div>
+
+      {/* 모바일 그리드 스켈레톤 */}
+      <div className="grid grid-cols-2 sm:hidden w-full gap-3">
+        {[...Array(6)].map((_, idx) => (
+          <div key={idx} className="h-24 border border-gray-200 rounded-lg p-3">
+            <div className="w-20 h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="w-28 h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="w-32 h-5 bg-gray-200 rounded"></div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -77,14 +132,14 @@ export function ParkingSkeleton() {
 
 export function CalculatedFareSkeleton() {
   return (
-      <div className='h-fit px-5 flex justify-center items-center bg-blue-50/70 flex-col'>
-          <div className="flex flex-wrap justify-center items-baseline border-t w-full text-center pt-10 border-t-gray-300 text-lg">
-              <span className="whitespace-nowrap">예상 주차 요금은</span>
-              <span className="whitespace-nowrap">
-                  &nbsp;<span className="animate-pulse bg-gray-300 rounded-md h-8 w-24 inline-block"></span> 원입니다.
-              </span>
-          </div>
-          <p className='text-sm mb-8 text-gray-400 pt-2 pb-4 animate-pulse'>※ 로딩 중...</p>
+    <div className='h-fit px-5 flex justify-center items-center bg-blue-50/70 flex-col'>
+      <div className="flex flex-wrap justify-center items-baseline border-t w-full text-center pt-10 border-t-gray-300 text-lg">
+        <span className="whitespace-nowrap">예상 주차 요금은</span>
+        <span className="whitespace-nowrap">
+          &nbsp;<span className="animate-pulse bg-gray-300 rounded-md h-8 w-24 inline-block"></span> 원입니다.
+        </span>
       </div>
+      <p className='text-sm mb-8 text-gray-400 pt-2 pb-4 animate-pulse'>※ 로딩 중...</p>
+    </div>
   )
 }
