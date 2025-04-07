@@ -1,3 +1,4 @@
+import { IoIosArrowDown } from "react-icons/io";
 import { calculateParkingfare } from '@/app/lib/actions';
 import { useState } from "react";
 import { TIME_OPTIONS, DISCOUNT_TYPES } from '@/app/lib/utils';
@@ -116,9 +117,8 @@ export default function Parkingfare() {
                             <option value="P2">P2장기주차장</option>
                             <option value="P3">화물주차장</option>
                         </select>
-                        {/* iOS에서 select 화살표 대체 */}
                         <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                            ▼
+                            <IoIosArrowDown />
                         </div>
                     </div>
 
@@ -148,16 +148,22 @@ export default function Parkingfare() {
 
                 <div className='w-full flex flex-col xl:col-span-2'>
                     <label className='mb-2 font-semibold'>할인</label>
-                    <select name='discount'
-                        className='border rounded p-2 text-base border-gray-300 bg-white'>
+                    <div className='relative'>
+                        <select name='discount'
+                            className='w-full appearance-none border rounded p-2 text-base border-gray-300 bg-white'>
 
-                        {DISCOUNT_TYPES.map((discount, idx) =>
-                            <option
-                                key={`discount${idx}`}
-                                value={discount.value}>
-                                {discount.label}
-                            </option>)}
-                    </select>
+                            {DISCOUNT_TYPES.map((discount, idx) =>
+                                <option
+                                    key={`discount${idx}`}
+                                    value={discount.value}>
+                                    {discount.label}
+                                </option>)}
+                        </select>
+                        <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                            <IoIosArrowDown />
+                        </div>
+                    </div>
+
                 </div>
 
 
@@ -167,16 +173,22 @@ export default function Parkingfare() {
                         <input name='startDate' type="date"
                             value={formatDateForInput(startDateTime)}
                             onChange={handleStartDateChange}
-                            className='col-span-3 border rounded p-2 text-base border-gray-300 bg-white ' />
-                        <select id="startTime" name='startTime'
-                            onChange={handleStartTimeChange}
-                            className='col-span-2 border rounded p-2 text-base border-gray-300 bg-white'>
-                            {TIME_OPTIONS.map((time) => (
-                                <option key={time} value={time}>
-                                    {time}
-                                </option>
-                            ))}
-                        </select>
+                            className='appearance-none col-span-3 border rounded p-2 text-base border-gray-300 bg-white ' />
+                        <div className="relative col-span-2">
+                            <select id="startTime" name='startTime'
+                                onChange={handleStartTimeChange}
+                                className='w-full appearance-none border rounded p-2 text-base border-gray-300 bg-white'>
+                                {TIME_OPTIONS.map((time) => (
+                                    <option key={time} value={time}>
+                                        {time}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                                <IoIosArrowDown />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -187,15 +199,21 @@ export default function Parkingfare() {
                             value={endDateTime ? formatDateForInput(endDateTime) : ""}
                             onChange={handleEndDateChange}
                             className='col-span-3 border rounded p-2 text-base border-gray-300 bg-white' />
-                        <select id="endTime" name='endTime'
-                            onChange={handleEndTimeChange}
-                            className='col-span-2 border rounded p-2 text-base border-gray-300 bg-white'>
-                            {TIME_OPTIONS.map((time) => (
-                                <option key={time} value={time}>
-                                    {time}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="relative col-span-2">
+                            <select id="endTime" name='endTime'
+                                onChange={handleEndTimeChange}
+                                className='w-full appearance-none border rounded p-2 text-base border-gray-300 bg-white'>
+                                {TIME_OPTIONS.map((time) => (
+                                    <option key={time} value={time}>
+                                        {time}
+                                    </option>
+                                ))}
+                            </select>
+                            <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                                <IoIosArrowDown />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
