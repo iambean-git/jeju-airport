@@ -56,13 +56,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // console.log("🔗 Boarding Time Fetching from:", url);
       // console.log("🔗 Boarding Congestion Fetching from:", url2);
 
-      const resp = await fetch(url);
-      const data = await resp.json();
-      // console.log("✅ BoardingTime data", data);
-
-      const resp2 = await fetch(url2);
-      const data2 = await resp2.json();
-      // console.log("✅ BoardingTime data", data2);
+      const [resp, resp2] = await Promise.all([
+        fetch(url),
+        fetch(url2)
+      ]);
+      
+      const [data, data2] = await Promise.all([
+        resp.json(),
+        resp2.json()
+      ]);
 
       const boardingData: boardinginfo = {
         total: {
