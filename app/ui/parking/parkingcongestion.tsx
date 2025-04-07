@@ -8,7 +8,7 @@ export default function Parkingcongestion({
     congestion: string;
 }) {
     return (
-        <div className='mt-10'>
+        <div className='mb-10'>
             <p className='font-semibold mb-3'>
                 {title}: {available}대 가능 {congestion==="만차" ? <span className='text-sm text-red-500'>(만차)</span>: <></>}
             </p>

@@ -34,13 +34,13 @@ export default function Parking() {
 
     return (
         <div className='w-full flex flex-col md:flex-row p-5 gap-5'>
-            <div className='w-full md:w-1/2 border rounded-lg border-gray-300 p-5 md:p-10 flex flex-col'>
-                <h1 className='w-full text-2xl font-bold '>주차 현황</h1>
+            <div className='w-full md:w-1/2 md:border rounded-lg md:border-gray-300 md:p-5 lg:p-10 flex flex-col'>
+                <h1 className='w-full text-2xl font-bold mb-10'>주차 현황</h1>
                 { data && data.map((i:parkinginfo)=><Parkingcongestion key={i.name} title={i.name} available={i.available} congestion={i.congestion} />)}
 
             </div>
-            <div className='w-full md:w-1/2 border rounded-lg border-gray-300 p-5 md:p-10 flex flex-col'>
-                <h1 className='w-full text-2xl font-bold '>예상 주차요금 조회</h1>
+            <div className='w-full md:w-1/2 md:border rounded-lg md:border-gray-300 md:p-5 lg:p-10 flex flex-col mt-10 md:mt-0'>
+                <h1 className='w-full text-2xl font-bold mb-10'>예상 주차요금 조회</h1>
                 <Parkingfare />
             </div>
         </div>
