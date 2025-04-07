@@ -10,6 +10,7 @@ export async function calculateParkingfare(formData: FormData): Promise<number> 
     console.log("✅ 출차시간 : ", formData.get('endTime'));
 
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+    console.log("✅ baseUrl : ", baseUrl);
 
     if (!baseUrl) throw new Error('BASE_URL이 설정되지 않았습니다.');
 
