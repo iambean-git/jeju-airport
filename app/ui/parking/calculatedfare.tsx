@@ -8,7 +8,7 @@ export default function CalculatedFare({ fare }: { fare: number }) {
                     &nbsp;<span className="text-3xl font-semibold text-rose-600">{fare.toLocaleString()}</span> 원입니다.
                 </span>
             </div>
-            <p className=' text-sm mb-8 text-gray-400 pt-2 pb-4 '>※ 참고를 위한 것으로 실제 요금과 상이할 수 있습니다.</p>
+            <p className='text-xs md:text-sm mb-8 text-gray-400 pt-2 pb-4 '>※ 참고를 위한 것으로 실제 요금과 상이할 수 있습니다.</p>
         </div>
     )
 }

@@ -109,12 +109,19 @@ export default function Parkingfare() {
                 className='grid grid-cols-1 xl:grid-cols-6 gap-5 p-5 bg-blue-50/70'>
                 <div className='w-full flex flex-col xl:col-span-2'>
                     <label className='mb-2 font-semibold'>주차장</label>
-                    <select name='parkinglotName'
-                        className='border rounded p-2 text-base border-gray-300 bg-white'>
-                        <option value="P1">P1주차장</option>
-                        <option value="P2">P2장기주차장</option>
-                        <option value="P3">화물주차장</option>
-                    </select>
+                    <div className='relative'>
+                        <select name='parkinglotName'
+                            className='w-full appearance-none border rounded p-2 text-base border-gray-300 bg-white'>
+                            <option value="P1">P1주차장</option>
+                            <option value="P2">P2장기주차장</option>
+                            <option value="P3">화물주차장</option>
+                        </select>
+                        {/* iOS에서 select 화살표 대체 */}
+                        <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
+                            ▼
+                        </div>
+                    </div>
+
                 </div>
 
                 <div className='w-full flex flex-col xl:col-span-2 '>
