@@ -55,12 +55,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const url2 = `${process.env.DATA_BOARDING_CONGESTION_URL}serviceKey=${process.env.DATA_KEY_DECODING}`;
       // console.log("🔗 Boarding Time Fetching from:", url);
       // console.log("🔗 Boarding Congestion Fetching from:", url2);
+      console.log("✅ Boarding정보 패치 시작");
 
       const [resp, resp2] = await Promise.all([
         fetch(url),
         fetch(url2)
       ]);
-      
+      console.log("✅ Boarding정보 패치 끝");
       const [data, data2] = await Promise.all([
         resp.json(),
         resp2.json()
