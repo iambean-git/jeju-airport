@@ -12,7 +12,7 @@ export default function BoardingTime({ info }: { info: BoardingTimeTotal }) {
         return `${period} ${formattedHour}:${minute.toString().padStart(2, "0")} 기준 `;
     };
     return (
-        <div className='p-5 w-full h-full flex flex-col justify-center items-center'>
+        <div className='p-5 w-full h-full flex flex-col justify-center items-center bg-w'>
             <h1 className='text-xl md:text-2xl font-bold' >
                 국내선 탑승시간
             </h1>

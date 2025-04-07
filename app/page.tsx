@@ -13,7 +13,7 @@ export default function Home() {
   const [selected, setSelected] = useState("taxi");
 
   return (
-    <div className="bg-[#f3f4f6] min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <header className="h-20 p-5 max-w-[1536px] mx-auto flex items-center justify-center">
         <div className="w-full text-2xl font-bold">
           About JEJU Airport

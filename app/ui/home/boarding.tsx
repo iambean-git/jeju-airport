@@ -29,7 +29,7 @@ export default function Boarding() {
     // }
     return (
         <div className="flex flex-col md:grid md:grid-cols-3 gap-5">
-            <section className="container h-auto md:h-72 font-b bg-white md:col-span-1">
+            <section className="container h-auto md:h-72  md:col-span-1">
                 <BoardingTime info={data.total} />
             </section>
             <section className="container h-auto md:h-72 md:col-span-2">
